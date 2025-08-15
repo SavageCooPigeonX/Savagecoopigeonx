@@ -1,0 +1,18 @@
+[
+  {
+    "id": "GZA-001",
+    "statement": "192 journalists killed (CPJ 2025)",
+    "category": "Geopolitical",
+    "source": "https://cpj.org/data/2025/",
+    "confidence": "High",
+    "last_verified": "2025-08-15"
+  },
+  {
+    "id": "AGI-001",
+    "statement": "AGI by 2030",
+    "category": "Predictive",
+    "source": "https://www.metaculus.com/questions/5121/",
+    "confidence": "Speculative",
+    "last_verified": "2025-08-15"
+  }
+]
