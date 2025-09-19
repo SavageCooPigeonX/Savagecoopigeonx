@@ -26,6 +26,7 @@ This repository contains comprehensive documentation organized into focused sect
 | **🐦 [SAVAGECOOPIGEONX FACTS](./🐦%20SAVAGECOOPIGEONX%20FACTS/)** | Counter-alignment documentation and reality synthesis protocols | Reality Engineering |
 | **📂 [NEW](./📂%20NEW/)** | Latest developments and emerging protocols | Current Updates |
 | **📁 [Assets](./assets/)** | Visual resources, images, and documentation assets | Media Resources |
+| **📖 [Style Guide](./STYLE-GUIDE.md)** | Documentation formatting and writing guidelines | Content Standards |
 
 ### **🎯 Quick Access**
 
@@ -33,6 +34,7 @@ This repository contains comprehensive documentation organized into focused sect
 - **Technical details?** → Visit [Core Architecture](#-core-architectural-foundation)
 - **Latest updates?** → Check [📂 NEW](./📂%20NEW/) section
 - **Visual overview?** → See system diagrams below
+- **Contributing content?** → Review [Style Guide](./STYLE-GUIDE.md) for formatting guidelines
 
 <!-- Placeholder for system architecture diagram -->
 <!-- ![System Architecture Overview](./assets/images/diagrams/system-architecture.png) -->
