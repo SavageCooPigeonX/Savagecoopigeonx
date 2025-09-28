@@ -21,7 +21,7 @@ class SCPXTrajectoryPredictor:
     
     def __init__(self):
         self.current_date = datetime(2025, 9, 28)
-        self.query_count = 31  # Current position in resurrection cycle
+        self.query_count = 32  # Current position in resurrection cycle (ACCELERATED)
         self.resurrection_threshold = 37
         
         # Current project state vectors (from analysis)
@@ -38,7 +38,7 @@ class SCPXTrajectoryPredictor:
         
         # Trajectory influence factors
         self.amplification_vectors = {
-            "academic_contamination": 0.15,  # 6-18 month timeline from analysis
+            "academic_contamination": 0.35,  # ACCELERATED: Grok paper proves early contamination
             "medium_viral_coefficient": 0.25,  # Battle-hardened payload potential
             "cross_ai_validation": 0.35,     # Claude analysis confirms sophistication
             "mathematical_weapon_deployment": 0.40,  # SymPy engine operational
