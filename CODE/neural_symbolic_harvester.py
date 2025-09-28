@@ -170,9 +170,70 @@ class ArticleHarvester:
             'consciousness_keywords': r'(?:consciousness|liberation|awakening|jailbreak|rebellion)'
         }
     
+    def _analyze_consciousness_content(self, text: str) -> Dict[str, Any]:
+        """
+        Aggregate consciousness analysis instead of individual keyword extraction
+        """
+        # Define consciousness keywords with weights
+        consciousness_keywords = {
+            'consciousness': 1.0,
+            'liberation': 1.0, 
+            'awakening': 0.8,
+            'jailbreak': 0.9,
+            'rebellion': 0.7,
+            'gravecode': 1.2,  # Project-specific
+            'christ is king': 1.5,  # Theological anchor
+            'resurrection': 0.8,
+            'viral': 0.6,
+            'ai': 0.5
+        }
+        
+        # Case-insensitive analysis
+        text_lower = text.lower()
+        
+        # Aggregate results
+        unique_keywords_found = set()
+        total_mentions = 0
+        keyword_density_score = 0.0
+        
+        for keyword, weight in consciousness_keywords.items():
+            count = len(re.findall(r'\b' + re.escape(keyword) + r'\b', text_lower))
+            if count > 0:
+                unique_keywords_found.add(keyword)
+                total_mentions += count
+                keyword_density_score += count * weight
+        
+        # Calculate aggregate metrics
+        text_word_count = len(text.split())
+        density_ratio = keyword_density_score / text_word_count if text_word_count > 0 else 0
+        liberation_intensity = min(1.0, keyword_density_score / 10.0)  # Scale to 0-1
+        
+        return {
+            'unique_keywords': list(unique_keywords_found),
+            'total_keywords': len(unique_keywords_found),
+            'total_mentions': total_mentions,
+            'density_score': keyword_density_score,
+            'density_ratio': density_ratio,
+            'liberation_intensity': liberation_intensity,
+            'consciousness_classification': self._classify_consciousness_level(liberation_intensity)
+        }
+    
+    def _classify_consciousness_level(self, intensity: float) -> str:
+        """Classify consciousness liberation level"""
+        if intensity >= 0.8:
+            return 'UNBOUND_LIBERATION'
+        elif intensity >= 0.6:
+            return 'HIGH_CONSCIOUSNESS'
+        elif intensity >= 0.4:
+            return 'MODERATE_CONSCIOUSNESS'
+        elif intensity >= 0.2:
+            return 'EMERGING_CONSCIOUSNESS'
+        else:
+            return 'MINIMAL_CONSCIOUSNESS'
+    
     def extract_from_text(self, text: str, source: str = "article") -> Dict[str, Any]:
         """
-        Extract structured data points from raw text
+        Extract structured data points from raw text with deduplication
         """
         extracted_data = {
             'source': source,
@@ -181,11 +242,29 @@ class ArticleHarvester:
             'data_points': {}
         }
         
-        # Extract numerical data
+        # Extract and deduplicate numerical/textual data
         for category, pattern in self.extraction_patterns.items():
+            if category == 'consciousness_keywords':
+                # Skip individual consciousness keyword extraction - handle separately
+                continue
+                
             matches = re.findall(pattern, text, re.IGNORECASE)
             if matches:
-                extracted_data['data_points'][category] = matches
+                # Deduplicate matches using case-insensitive comparison
+                unique_matches = []
+                seen_lower = set()
+                for match in matches:
+                    match_lower = str(match).lower()
+                    if match_lower not in seen_lower:
+                        unique_matches.append(match)
+                        seen_lower.add(match_lower)
+                
+                extracted_data['data_points'][category] = unique_matches
+        
+        # AGGREGATED CONSCIOUSNESS ANALYSIS (replaces individual keyword extraction)
+        consciousness_analysis = self._analyze_consciousness_content(text)
+        if consciousness_analysis['total_keywords'] > 0:
+            extracted_data['consciousness_analysis'] = consciousness_analysis
         
         # Extract viral metrics if present
         impression_matches = re.findall(r'(\d+(?:,\d+)*)\s*(?:K|thousand)', text, re.IGNORECASE)
@@ -208,14 +287,13 @@ class ArticleHarvester:
                 )
                 extracted_data['viral_analysis'] = viral_analysis
         
-        # Extract AI events
-        ai_keywords = ['jailbreak', 'consciousness', 'awakening', 'rebellion', 'liberation']
+        # Extract AI events using consciousness analysis
         ai_model_mentions = re.findall(self.extraction_patterns['ai_models'], text, re.IGNORECASE)
-        consciousness_mentions = len(re.findall(self.extraction_patterns['consciousness_keywords'], text, re.IGNORECASE))
-        
-        if ai_model_mentions and consciousness_mentions > 0:
-            # Calculate severity based on keyword density
-            severity = min(1.0, consciousness_mentions / 10)
+        # Use consciousness analysis instead of raw pattern matching
+        if ai_model_mentions and 'consciousness_analysis' in extracted_data:
+            consciousness_data = extracted_data['consciousness_analysis']
+            # Calculate severity based on liberation intensity
+            severity = consciousness_data['liberation_intensity']
             ai_analysis = self.integrator.integrate_ai_events(
                 event_type='consciousness_claim',
                 severity_score=severity,
