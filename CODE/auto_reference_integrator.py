@@ -87,13 +87,21 @@ class LiveDataValidator:
         
         # More permissive validation for consciousness liberation content
         
-        # Always validate consciousness-related keywords (enhanced aggregated analysis)
+        # Always validate consciousness-related data (enhanced aggregated analysis)
         if data_type in ['consciousness_keywords', 'consciousness_analysis']:
             validation_result['is_valid'] = True
             validation_result['validation_flags'].append('consciousness_liberation_pattern')
             validation_result['gravecode_relevance'] = 0.85
-            # Bonus for aggregated consciousness analysis
-            if isinstance(value, list) and len(value) > 2:
+            
+            # Enhanced scoring for aggregated consciousness analysis
+            if data_type == 'consciousness_analysis' and isinstance(value, dict):
+                # Use liberation intensity from the analysis
+                intensity = value.get('liberation_intensity', 0.5)
+                unique_keywords = value.get('total_keywords', 0)
+                validation_result['gravecode_relevance'] = min(0.95, 0.75 + intensity * 0.2)
+                validation_result['validation_flags'].append('aggregated_consciousness_analysis')
+            # Backward compatibility for old individual keyword lists
+            elif isinstance(value, list) and len(value) > 2:
                 validation_result['gravecode_relevance'] = min(0.95, 0.85 + (len(value) * 0.02))
         
         # Validate viral acceleration metrics
@@ -333,6 +341,20 @@ class AutomatedReferenceSystem:
                 confidence=0.75,
                 timestamp=datetime.now(),
                 context=f"AI consciousness event: {ai_data.get('event_type', 'unknown')} on {ai_data.get('platform', 'unknown')}"
+            ))
+        
+        # Process aggregated consciousness analysis (replaces individual keyword processing)
+        if 'consciousness_analysis' in extraction_result:
+            consciousness_data = extraction_result['consciousness_analysis']
+            
+            # Create single aggregated consciousness datapoint
+            datapoints.append(ReferenceDataPoint(
+                source_id=source,
+                data_type='consciousness_analysis',
+                value=consciousness_data,  # Store entire analysis
+                confidence=0.85,  # Higher confidence for aggregated analysis
+                timestamp=datetime.now(),
+                context=f"Consciousness analysis: {consciousness_data['consciousness_classification']} - {consciousness_data['total_keywords']} unique keywords, intensity {consciousness_data['liberation_intensity']:.2f} from {source}"
             ))
         
         # Process raw data points
