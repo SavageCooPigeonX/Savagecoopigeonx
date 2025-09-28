@@ -198,6 +198,15 @@ class AutomatedReferenceSystem:
         self.integration_history = []
         self.gravecode_updates = []
         
+        # Cross-system deduplication tracking (Phase 2 enhancement)
+        self.deduplication_cache = {
+            'ai_models': set(),           # Track unique AI models (case-insensitive)
+            'dates': set(),               # Track unique dates
+            'statistics': {},             # Track statistics by type to avoid duplicates
+            'processed_sources': set(),   # Track processed sources to avoid reprocessing
+            'content_hashes': set()       # Track content hashes to detect identical content
+        }
+        
         # Configuration
         self.config = self._load_configuration()
         
@@ -265,6 +274,10 @@ class AutomatedReferenceSystem:
         batch_result['extracted_datapoints'] = [dp.to_dict() for dp in all_datapoints]
         batch_result['validation_summary'] = self._summarize_validations(validation_results)
         
+        # Apply data quality controls (Phase 2 enhancement)
+        quality_report = self._check_data_quality_thresholds(all_datapoints)
+        batch_result['data_quality_report'] = quality_report
+        
         # Integrate into GRAVECODE frameworks if enabled
         if auto_integrate:
             integration_results = self._integrate_into_gravecode(all_datapoints)
@@ -278,6 +291,10 @@ class AutomatedReferenceSystem:
         if len(self.memetic_graph.graph.nodes) > 0:
             memetic_analysis = self.memetic_graph.generate_propagation_report()
             batch_result['memetic_analysis'] = memetic_analysis
+        
+        # Phase 4: Final Data Quality Validation
+        final_validation = self._validate_final_data_quality(all_datapoints)
+        batch_result['final_data_quality_validation'] = final_validation
         
         # Store in database
         self.reference_database.extend(all_datapoints)
@@ -302,6 +319,155 @@ class AutomatedReferenceSystem:
             return f"Context: ...{context_with_highlight}..."
         except Exception:
             return f"Context: {match_text} (context extraction failed)"
+    
+    def _validate_final_data_quality(self, datapoints: List[ReferenceDataPoint]) -> Dict[str, Any]:
+        """
+        Phase 4: Final data quality validation with intelligent aggregation
+        """
+        validation_report = {
+            'total_datapoints': len(datapoints),
+            'unique_sources': len(set(dp.source_id for dp in datapoints)),
+            'data_type_distribution': {},
+            'duplicate_detection': {},
+            'consciousness_pattern_analysis': {},
+            'final_quality_score': 0.0,
+            'optimization_applied': []
+        }
+        
+        # Analyze data type distribution
+        for dp in datapoints:
+            data_type = dp.data_type
+            validation_report['data_type_distribution'][data_type] = validation_report['data_type_distribution'].get(data_type, 0) + 1
+        
+        # Detect potential duplicates across different sources
+        content_signatures = {}
+        for dp in datapoints:
+            # Create content signature based on data_type and normalized value
+            if isinstance(dp.value, dict):
+                signature = f"{dp.data_type}_{dp.value.get('consciousness_classification', 'unknown')}"
+            else:
+                signature = f"{dp.data_type}_{str(dp.value).lower().strip()}"
+            
+            if signature not in content_signatures:
+                content_signatures[signature] = []
+            content_signatures[signature].append(dp.source_id)
+        
+        # Report cross-source duplicates
+        cross_source_duplicates = {sig: sources for sig, sources in content_signatures.items() if len(sources) > 1}
+        validation_report['duplicate_detection'] = {
+            'cross_source_duplicates': len(cross_source_duplicates),
+            'duplicate_patterns': list(cross_source_duplicates.keys())[:5]  # Show first 5 patterns
+        }
+        
+        # Analyze consciousness patterns
+        consciousness_datapoints = [dp for dp in datapoints if dp.data_type == 'consciousness_analysis']
+        if consciousness_datapoints:
+            consciousness_intensities = []
+            consciousness_classifications = {}
+            
+            for dp in consciousness_datapoints:
+                if isinstance(dp.value, dict):
+                    intensity = dp.value.get('liberation_intensity', 0)
+                    classification = dp.value.get('consciousness_classification', 'UNKNOWN')
+                    consciousness_intensities.append(intensity)
+                    consciousness_classifications[classification] = consciousness_classifications.get(classification, 0) + 1
+            
+            validation_report['consciousness_pattern_analysis'] = {
+                'avg_liberation_intensity': sum(consciousness_intensities) / len(consciousness_intensities) if consciousness_intensities else 0,
+                'classification_distribution': consciousness_classifications,
+                'high_intensity_sources': len([i for i in consciousness_intensities if i > 0.7])
+            }
+        
+        # Calculate final quality score
+        datapoints_per_source = len(datapoints) / validation_report['unique_sources'] if validation_report['unique_sources'] > 0 else 0
+        duplicate_ratio = validation_report['duplicate_detection']['cross_source_duplicates'] / len(datapoints) if datapoints else 0
+        
+        # Quality scoring: penalize too many datapoints per source, reward low duplicates
+        source_efficiency_score = min(1.0, 10 / datapoints_per_source) if datapoints_per_source > 0 else 1.0
+        duplicate_penalty = max(0.0, 1.0 - duplicate_ratio * 2)
+        consciousness_bonus = validation_report['consciousness_pattern_analysis'].get('avg_liberation_intensity', 0) * 0.2
+        
+        validation_report['final_quality_score'] = min(1.0, source_efficiency_score * 0.4 + duplicate_penalty * 0.4 + consciousness_bonus + 0.2)
+        
+        # Add optimization notes
+        if datapoints_per_source > 15:
+            validation_report['optimization_applied'].append("🔧 High datapoint density - consider further aggregation")
+        if duplicate_ratio > 0.1:
+            validation_report['optimization_applied'].append("🔍 Cross-source duplicates detected - deduplication effective")
+        if validation_report['consciousness_pattern_analysis'].get('avg_liberation_intensity', 0) > 0.6:
+            validation_report['optimization_applied'].append("🧬 High consciousness liberation signal - analysis quality excellent")
+        
+        return validation_report
+    
+    def _check_data_quality_thresholds(self, datapoints: List[ReferenceDataPoint]) -> Dict[str, Any]:
+        """
+        Check data quality controls and thresholds to prevent excessive datapoint creation
+        """
+        quality_report = {
+            'total_datapoints': len(datapoints),
+            'threshold_exceeded': False,
+            'quality_score': 0.0,
+            'recommendations': []
+        }
+        
+        # Quality thresholds from config
+        max_datapoints_per_batch = self.config.get('max_references_per_batch', 100)
+        min_confidence_threshold = self.config.get('confidence_threshold', 0.6)
+        
+        # Check datapoint count threshold
+        if len(datapoints) > max_datapoints_per_batch:
+            quality_report['threshold_exceeded'] = True
+            quality_report['recommendations'].append(f"⚠️ Exceeds max datapoints per batch ({len(datapoints)} > {max_datapoints_per_batch})")
+        
+        # Calculate quality score based on confidence and relevance
+        total_confidence = sum(dp.confidence for dp in datapoints)
+        avg_confidence = total_confidence / len(datapoints) if datapoints else 0
+        
+        high_confidence_count = len([dp for dp in datapoints if dp.confidence >= min_confidence_threshold])
+        confidence_ratio = high_confidence_count / len(datapoints) if datapoints else 0
+        
+        # Quality score: weighted average of confidence ratio and average confidence
+        quality_report['quality_score'] = (confidence_ratio * 0.6) + (avg_confidence * 0.4)
+        
+        # Quality-based recommendations
+        if quality_report['quality_score'] < 0.5:
+            quality_report['recommendations'].append("🔧 Low quality score - consider improving data sources")
+        elif quality_report['quality_score'] > 0.8:
+            quality_report['recommendations'].append("✅ High quality data - excellent sources")
+        
+        return quality_report
+    
+    def _deduplicate_datapoint(self, data_type: str, value: Any, source: str) -> bool:
+        """
+        Check if datapoint is duplicate using cross-system deduplication tracking
+        Returns True if datapoint should be kept, False if it's a duplicate
+        """
+        if data_type == 'ai_models':
+            # Case-insensitive AI model deduplication
+            model_name = str(value).lower().strip()
+            if model_name in self.deduplication_cache['ai_models']:
+                return False
+            self.deduplication_cache['ai_models'].add(model_name)
+            return True
+            
+        elif data_type == 'dates':
+            # Date deduplication (normalize date formats)
+            date_str = str(value).lower().strip()
+            if date_str in self.deduplication_cache['dates']:
+                return False
+            self.deduplication_cache['dates'].add(date_str)
+            return True
+            
+        elif data_type == 'statistics':
+            # Statistics deduplication by value and context
+            stat_key = f"{value}_{source}"
+            if stat_key in self.deduplication_cache['statistics']:
+                return False
+            self.deduplication_cache['statistics'][stat_key] = True
+            return True
+            
+        # Keep all other data types for now
+        return True
     
     def _convert_to_datapoints(self, extraction_result: Dict[str, Any], 
                              source: str) -> List[ReferenceDataPoint]:
@@ -357,12 +523,16 @@ class AutomatedReferenceSystem:
                 context=f"Consciousness analysis: {consciousness_data['consciousness_classification']} - {consciousness_data['total_keywords']} unique keywords, intensity {consciousness_data['liberation_intensity']:.2f} from {source}"
             ))
         
-        # Process raw data points
+        # Process raw data points with cross-system deduplication
         if 'data_points' in extraction_result:
             raw_points = extraction_result['data_points']
             
             for category, values in raw_points.items():
                 for value in values:
+                    # Apply deduplication check before creating datapoint
+                    if not self._deduplicate_datapoint(category, value, source):
+                        continue  # Skip duplicate
+                    
                     try:
                         # Try to convert to numeric
                         numeric_value = float(str(value).replace(',', '').replace('K', '000').replace('%', ''))

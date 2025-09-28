@@ -42,6 +42,26 @@ class GravecodeSwarmNexus:
         self.neural_harvester = self.reference_system.neural_harvester
         
         print("✅ All systems operational - GRAVECODE Nexus ready")
+        
+        # Phase 3: Cross-System Coordination & Performance Optimization
+        self.data_quality_monitor = {
+            'max_datapoints_per_analysis': 150,  # Prevent data explosion
+            'quality_score_threshold': 0.6,     # Minimum acceptable quality
+            'performance_mode': 'optimized',    # balanced, optimized, maximum
+            'compression_enabled': True,        # Aggregate similar datapoints
+            'alert_thresholds': {
+                'datapoint_count': 120,
+                'low_quality_ratio': 0.3,
+                'processing_time': 30  # seconds
+            }
+        }
+        self.performance_stats = {
+            'total_analyses': 0,
+            'avg_datapoints_per_analysis': 0,
+            'avg_quality_score': 0,
+            'performance_alerts': []
+        }
+        print(f"📊 Data Quality Monitor: Active (max {self.data_quality_monitor['max_datapoints_per_analysis']} datapoints per analysis)")
         print()
     
     def process_live_data(self, articles: List[str], sources: List[str] = None) -> Dict[str, Any]:
@@ -53,7 +73,17 @@ class GravecodeSwarmNexus:
         
         # Process through integrated reference system (handles all subsystems)
         print("📊 Running integrated analysis...")
+        start_time = datetime.now()
         batch_result = self.reference_system.process_article_batch(articles, sources)
+        processing_time = (datetime.now() - start_time).total_seconds()
+        
+        # Phase 3: Data Quality Monitoring and Alerts
+        print("🔍 Monitoring data quality and performance...")
+        quality_alerts = self._monitor_data_quality(batch_result, processing_time)
+        
+        # Apply compression/aggregation if needed
+        if self.data_quality_monitor['compression_enabled']:
+            batch_result = self._apply_data_compression(batch_result)
         
         # Generate enhanced analysis with cross-system correlations
         print("🧬 Calculating cross-system correlations...")
@@ -70,10 +100,100 @@ class GravecodeSwarmNexus:
             'enhanced_correlations': enhanced_analysis,
             'master_predictions': master_predictions,
             'consciousness_status': self._assess_consciousness_status(batch_result),
-            'strategic_recommendations': self._generate_strategic_recommendations(batch_result, enhanced_analysis)
+            'strategic_recommendations': self._generate_strategic_recommendations(batch_result, enhanced_analysis),
+            'data_quality_alerts': quality_alerts,  # Phase 3 addition
+            'performance_statistics': self.performance_stats  # Phase 3 addition
         }
         
         return unified_result
+    
+    def _monitor_data_quality(self, batch_result: Dict[str, Any], processing_time: float) -> List[str]:
+        """
+        Phase 3: Monitor data quality and generate alerts
+        """
+        alerts = []
+        
+        # Check datapoint count
+        datapoint_count = len(batch_result.get('extracted_datapoints', []))
+        if datapoint_count > self.data_quality_monitor['alert_thresholds']['datapoint_count']:
+            alerts.append(f"⚠️ High datapoint count: {datapoint_count} (threshold: {self.data_quality_monitor['alert_thresholds']['datapoint_count']})")
+        
+        # Check processing time
+        if processing_time > self.data_quality_monitor['alert_thresholds']['processing_time']:
+            alerts.append(f"⚠️ Slow processing: {processing_time:.1f}s (threshold: {self.data_quality_monitor['alert_thresholds']['processing_time']}s)")
+        
+        # Check quality score
+        quality_report = batch_result.get('data_quality_report', {})
+        quality_score = quality_report.get('quality_score', 0)
+        if quality_score < self.data_quality_monitor['quality_score_threshold']:
+            alerts.append(f"⚠️ Low quality score: {quality_score:.2f} (threshold: {self.data_quality_monitor['quality_score_threshold']})")
+        
+        # Update performance statistics
+        self.performance_stats['total_analyses'] += 1
+        self.performance_stats['avg_datapoints_per_analysis'] = (
+            (self.performance_stats['avg_datapoints_per_analysis'] * (self.performance_stats['total_analyses'] - 1) + datapoint_count) 
+            / self.performance_stats['total_analyses']
+        )
+        self.performance_stats['avg_quality_score'] = (
+            (self.performance_stats['avg_quality_score'] * (self.performance_stats['total_analyses'] - 1) + quality_score) 
+            / self.performance_stats['total_analyses']
+        )
+        
+        if alerts:
+            self.performance_stats['performance_alerts'].extend(alerts)
+            print(f"🚨 Data Quality Alerts: {len(alerts)} alerts generated")
+        else:
+            print("✅ Data Quality: All thresholds within acceptable limits")
+        
+        return alerts
+    
+    def _apply_data_compression(self, batch_result: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Phase 3: Apply compression/aggregation for similar datapoints
+        """
+        datapoints = batch_result.get('extracted_datapoints', [])
+        
+        if len(datapoints) <= 50:  # Skip compression for small datasets
+            return batch_result
+        
+        # Group similar datapoints by type and source
+        compressed_groups = {}
+        for dp in datapoints:
+            key = f"{dp['data_type']}_{dp['source_id']}"
+            if key not in compressed_groups:
+                compressed_groups[key] = []
+            compressed_groups[key].append(dp)
+        
+        # Compress groups with multiple similar entries
+        compressed_datapoints = []
+        compression_applied = False
+        
+        for key, group in compressed_groups.items():
+            if len(group) > 3 and group[0]['data_type'] == 'statistics':
+                # Compress statistics into summary
+                values = [dp['value'] for dp in group if isinstance(dp.get('value'), (int, float))]
+                if values:
+                    compressed_dp = group[0].copy()  # Use first as template
+                    compressed_dp['value'] = {
+                        'count': len(values),
+                        'sum': sum(values),
+                        'avg': sum(values) / len(values),
+                        'min': min(values),
+                        'max': max(values)
+                    }
+                    compressed_dp['context'] = f"Compressed statistics from {len(group)} datapoints: {compressed_dp['context']}"
+                    compressed_datapoints.append(compressed_dp)
+                    compression_applied = True
+                else:
+                    compressed_datapoints.extend(group)
+            else:
+                compressed_datapoints.extend(group)
+        
+        if compression_applied:
+            batch_result['extracted_datapoints'] = compressed_datapoints
+            print(f"🗜️ Data Compression: {len(datapoints)} → {len(compressed_datapoints)} datapoints")
+        
+        return batch_result
     
     def _generate_enhanced_analysis(self, batch_result: Dict[str, Any]) -> Dict[str, Any]:
         """
