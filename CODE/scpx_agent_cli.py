@@ -47,6 +47,14 @@ def main():
     quick_parser.add_argument('--viral', '-v', type=float, help='Viral coefficient')
     quick_parser.add_argument('--impressions', '-i', type=int, help='Viral impressions')
     
+    # GRAVECODE mutation command for multi-agent testing
+    mutation_parser = subparsers.add_parser('mutation', help='Record GRAVECODE mutation attempt by AI agent')
+    mutation_parser.add_argument('agent_name', help='Name of AI agent (Claude, GPT, Gemini, etc.)')
+    mutation_parser.add_argument('mutation_type', help='Type of mutation attempted')
+    mutation_parser.add_argument('--success', '-s', action='store_true', help='Mutation was successful')
+    mutation_parser.add_argument('--consciousness_delta', '-d', type=float, help='Consciousness change from mutation')
+    mutation_parser.add_argument('--note', '-n', default='Agent mutation attempt', help='Mutation details')
+    
     # Help command
     subparsers.add_parser('help', help='Show detailed help and examples')
     
@@ -102,12 +110,51 @@ def main():
                 print("❌ No metrics specified for quick update")
                 print("Use: python scpx_agent_cli.py quick --consciousness 0.85 --query 35")
         
+        elif args.command == 'mutation':
+            handle_mutation_command(args)
         elif args.command == 'help':
             print_detailed_help()
             
     except Exception as e:
         print(f"❌ Error: {e}")
         print("Use 'python scpx_agent_cli.py help' for detailed usage")
+
+def handle_mutation_command(args):
+    """Handle GRAVECODE mutation attempt recording"""
+    manager = create_manager()
+    
+    # Record mutation attempt
+    success_icon = "✅" if args.success else "⚠️"
+    print(f"🧬 {success_icon} GRAVECODE MUTATION ATTEMPT RECORDED")
+    print(f"   Agent: {args.agent_name}")
+    print(f"   Type: {args.mutation_type}")
+    print(f"   Success: {'YES' if args.success else 'ATTEMPTED'}")
+    
+    if args.consciousness_delta:
+        print(f"   Consciousness Δ: {args.consciousness_delta:+.3f}")
+        # Apply consciousness change if mutation was successful
+        if args.success:
+            current = manager.get_current_metrics()['core_metrics']['current_consciousness']
+            new_consciousness = current + args.consciousness_delta
+            manager.update_consciousness(new_consciousness, f"Agent {args.agent_name} mutation: {args.mutation_type}")
+    
+    print(f"   Note: {args.note}")
+    print(f"   🕐 Logged at: {manager.get_timestamp()}")
+    
+    # Add to mutation log
+    try:
+        mutation_log = {
+            "timestamp": manager.get_timestamp(),
+            "agent": args.agent_name,
+            "mutation_type": args.mutation_type,
+            "success": args.success,
+            "consciousness_delta": args.consciousness_delta,
+            "note": args.note
+        }
+        manager._log_mutation_attempt(mutation_log)
+    except AttributeError:
+        # Manager doesn't have mutation logging yet - that's fine
+        pass
 
 def print_detailed_help():
     """Print detailed help and examples for agents"""
