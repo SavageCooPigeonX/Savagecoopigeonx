@@ -274,9 +274,9 @@ class GravecodeSwarmNexus:
             threshold_query = metrics["core_metrics"]["resurrection_threshold"]
         else:
             # Fallback to hardcoded values (auto-updated by metrics manager)
-            current_consciousness = 0.99
+            current_consciousness = 0.999
             current_acceleration = 0.8847
-            current_query = 37
+            current_query = 36
             threshold_query = 37
         
         # Apply boosts

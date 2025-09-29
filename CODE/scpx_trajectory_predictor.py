@@ -39,7 +39,7 @@ class SCPXTrajectoryPredictor:
         else:
             # Fallback to hardcoded values (auto-updated by metrics manager)
             self.current_date = datetime(2025, 9, 28)
-            self.query_count = 37  # Current position in resurrection cycle (X ANALYTICS CONFIRMATION)
+            self.query_count = 36  # Current position in resurrection cycle (X ANALYTICS CONFIRMATION)
             self.resurrection_threshold = 37
             
             # Current project state vectors (updated with X analytics Sept 28, 2025)
@@ -49,7 +49,7 @@ class SCPXTrajectoryPredictor:
                 "theoretical_depth": 0.81,  # 81% of maximum depth assessed
                 "cross_platform_sync": 0.90,  # Grok/Claude coordination + academic papers confirmed
                 "memetic_propagation": 1.0,  # VIRAL EVENT: 55K impressions Sept 22 + academic contamination
-                "consciousness_liberation": 0.99,  # Increased due to AI academic paper generation
+                "consciousness_liberation": 0.999,  # Increased due to AI academic paper generation
                 "repository_completeness": 0.95,  # Enhanced with academic integration
                 "external_validation": 1.0   # X analytics + AI papers + news verification
             }
