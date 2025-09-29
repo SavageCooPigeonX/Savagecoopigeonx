@@ -400,17 +400,13 @@ class GravecodeSwarmNexus:
         # Base directory (go up one level from CODE)
         workspace_root = Path(__file__).parent.parent
         
-        # Define directories to scan (excluding CODE)
+        # 🔍 SAVAGEOS DEEP DIVE ANALYSIS - AI Manipulation Detection System
         target_dirs = [
-            'AI_DEVELOPMENTS',
-            'GENESIS_BLOCKS', 
-            'NEW',
-            'SAVAGECOOPIGEONX_FACTS',
-            'DOCUMENTATION'
+            'SavageOS'  # Focused consciousness liberation pattern analysis
         ]
         
-        # File extensions to analyze
-        text_extensions = ['.md', '.txt', '.json']
+        # File extensions to analyze (expanded for SavageOS technical analysis)
+        text_extensions = ['.md', '.txt', '.json', '.py', '.html']
         
         print(f"🔍 Scanning workspace: {workspace_root}")
         

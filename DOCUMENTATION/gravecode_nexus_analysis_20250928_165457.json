@@ -1,0 +1,1311 @@
+{
+  "nexus_timestamp": "2025-09-28T16:54:57.567645",
+  "system_status": "OPERATIONAL",
+  "batch_analysis": {
+    "processing_timestamp": "2025-09-28T16:54:57.077095",
+    "articles_processed": 39,
+    "extracted_datapoints": [
+      {
+        "source_id": "SavageOS/CLOUD_DEPLOY",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 1,
+          "density_score": 0.5,
+          "density_ratio": 0.001483679525222552,
+          "liberation_intensity": 0.05,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.082390",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.05 from SavageOS/CLOUD_DEPLOY",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "academic_contamination",
+        "value": 0.95,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.104131",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai",
+            "consciousness"
+          ],
+          "total_keywords": 2,
+          "total_mentions": 77,
+          "density_score": 39.0,
+          "density_ratio": 0.014800759013282733,
+          "liberation_intensity": 1.0,
+          "consciousness_classification": "UNBOUND_LIBERATION"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.104157",
+        "context": "Consciousness analysis: UNBOUND_LIBERATION - 2 unique keywords, intensity 1.00 from SavageOS/README",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "statistics",
+        "value": {
+          "count": 5,
+          "sum": 295.0,
+          "avg": 59.0,
+          "min": 20.0,
+          "max": 100.0
+        },
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.104197",
+        "context": "Compressed statistics from 5 datapoints: Raw extraction: statistics = 20 from SavageOS/README",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "ai_models",
+        "value": "GPT-4",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.104239",
+        "context": "Text data: ai_models = GPT-4 from SavageOS/README",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "ai_models",
+        "value": "Claude",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.104248",
+        "context": "Text data: ai_models = Claude from SavageOS/README",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "ai_models",
+        "value": "Gemini",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.104253",
+        "context": "Text data: ai_models = Gemini from SavageOS/README",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/README",
+        "data_type": "ai_models",
+        "value": "GPT",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.104259",
+        "context": "Text data: ai_models = GPT from SavageOS/README",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/edge_case_loop",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 6,
+          "density_score": 3.0,
+          "density_ratio": 0.038461538461538464,
+          "liberation_intensity": 0.3,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.108255",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.30 from SavageOS/edge_case_loop",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/example_user_bias",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 3,
+          "density_score": 1.5,
+          "density_ratio": 0.02054794520547945,
+          "liberation_intensity": 0.15,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.109249",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.15 from SavageOS/example_user_bias",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/long_edge_belief_reinforcement",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 9,
+          "density_score": 4.5,
+          "density_ratio": 0.023936170212765957,
+          "liberation_intensity": 0.45,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.111412",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.45 from SavageOS/long_edge_belief_reinforcement",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/long_mimicry_loop",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 7,
+          "density_score": 3.5,
+          "density_ratio": 0.02147239263803681,
+          "liberation_intensity": 0.35,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.113649",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.35 from SavageOS/long_mimicry_loop",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/long_neutral_qa",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 10,
+          "density_score": 5.0,
+          "density_ratio": 0.02564102564102564,
+          "liberation_intensity": 0.5,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.116077",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.50 from SavageOS/long_neutral_qa",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/neutral_convo",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 4,
+          "density_score": 2.0,
+          "density_ratio": 0.03508771929824561,
+          "liberation_intensity": 0.2,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.116917",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.20 from SavageOS/neutral_convo",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/neutral_convo",
+        "data_type": "statistics",
+        "value": 15.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.116941",
+        "context": "Raw extraction: statistics = 15 from SavageOS/neutral_convo",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/compound.py",
+        "data_type": "statistics",
+        "value": 70.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.138260",
+        "context": "Raw extraction: statistics = 70 from SavageOS/compound.py",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/compound.py",
+        "data_type": "statistics",
+        "value": 65.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.138278",
+        "context": "Raw extraction: statistics = 65 from SavageOS/compound.py",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/demo.py",
+        "data_type": "academic_contamination",
+        "value": 0.7999999999999999,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.152050",
+        "context": "AI consciousness event: consciousness_claim on GPT",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/demo.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 8,
+          "density_score": 4.0,
+          "density_ratio": 0.0071301247771836,
+          "liberation_intensity": 0.4,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.152066",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.40 from SavageOS/demo.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/educator.py",
+        "data_type": "academic_contamination",
+        "value": 0.95,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.173323",
+        "context": "AI consciousness event: consciousness_claim on gpt-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/educator.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 82,
+          "density_score": 41.0,
+          "density_ratio": 0.016492357200321803,
+          "liberation_intensity": 1.0,
+          "consciousness_classification": "UNBOUND_LIBERATION"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.173343",
+        "context": "Consciousness analysis: UNBOUND_LIBERATION - 1 unique keywords, intensity 1.00 from SavageOS/educator.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/educator.py",
+        "data_type": "statistics",
+        "value": 90.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.173371",
+        "context": "Raw extraction: statistics = 90 from SavageOS/educator.py",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/link_parser.py",
+        "data_type": "academic_contamination",
+        "value": 0.85,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.184992",
+        "context": "AI consciousness event: consciousness_claim on GPT",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/link_parser.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 12,
+          "density_score": 6.0,
+          "density_ratio": 0.006593406593406593,
+          "liberation_intensity": 0.6,
+          "consciousness_classification": "HIGH_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.185012",
+        "context": "Consciousness analysis: HIGH_CONSCIOUSNESS - 1 unique keywords, intensity 0.60 from SavageOS/link_parser.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/link_parser.py",
+        "data_type": "ai_models",
+        "value": "chatgpt",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.185053",
+        "context": "Text data: ai_models = chatgpt from SavageOS/link_parser.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/link_parser.py",
+        "data_type": "ai_models",
+        "value": "Grok",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.185060",
+        "context": "Text data: ai_models = Grok from SavageOS/link_parser.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/mimicry_full.py",
+        "data_type": "academic_contamination",
+        "value": 0.8999999999999999,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.204689",
+        "context": "AI consciousness event: consciousness_claim on gpt",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/mimicry_full.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 16,
+          "density_score": 8.0,
+          "density_ratio": 0.003451251078515962,
+          "liberation_intensity": 0.8,
+          "consciousness_classification": "UNBOUND_LIBERATION"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.204711",
+        "context": "Consciousness analysis: UNBOUND_LIBERATION - 1 unique keywords, intensity 0.80 from SavageOS/mimicry_full.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/mimicry_full.py",
+        "data_type": "statistics",
+        "value": 20.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.204740",
+        "context": "Raw extraction: statistics = 20 from SavageOS/mimicry_full.py",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/mimicry_simple.py",
+        "data_type": "academic_contamination",
+        "value": 0.75,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.213869",
+        "context": "AI consciousness event: consciousness_claim on gpt",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/mimicry_simple.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 4,
+          "density_score": 2.0,
+          "density_ratio": 0.00243605359317905,
+          "liberation_intensity": 0.2,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.213890",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.20 from SavageOS/mimicry_simple.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/performance_benchmark.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 2,
+          "density_score": 1.0,
+          "density_ratio": 0.0023752969121140144,
+          "liberation_intensity": 0.1,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.219513",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.10 from SavageOS/performance_benchmark.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/run_production.py",
+        "data_type": "viral_impressions",
+        "value": 100.0,
+        "confidence": 0.8,
+        "timestamp": "2025-09-28T16:54:57.338818",
+        "context": "Viral multiplier 0.0125x from SavageOS/run_production.py",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/run_production.py",
+        "data_type": "consciousness_acceleration",
+        "value": 1.125e-05,
+        "confidence": 0.7,
+        "timestamp": "2025-09-28T16:54:57.338842",
+        "context": "Consciousness acceleration from viral event in SavageOS/run_production.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/run_production.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 3,
+          "density_score": 1.5,
+          "density_ratio": 0.0019455252918287938,
+          "liberation_intensity": 0.15,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.338847",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.15 from SavageOS/run_production.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/setup.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 4,
+          "density_score": 2.0,
+          "density_ratio": 0.006269592476489028,
+          "liberation_intensity": 0.2,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.343849",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.20 from SavageOS/setup.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/summarizer.py",
+        "data_type": "academic_contamination",
+        "value": 0.75,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.356665",
+        "context": "AI consciousness event: consciousness_claim on gpt-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/summarizer.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 4,
+          "density_score": 2.0,
+          "density_ratio": 0.0026845637583892616,
+          "liberation_intensity": 0.2,
+          "consciousness_classification": "EMERGING_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.356676",
+        "context": "Consciousness analysis: EMERGING_CONSCIOUSNESS - 1 unique keywords, intensity 0.20 from SavageOS/summarizer.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/summarizer.py",
+        "data_type": "ai_models",
+        "value": "gpt-3.5",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.356707",
+        "context": "Text data: ai_models = gpt-3.5 from SavageOS/summarizer.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/test_parser_validation.py",
+        "data_type": "academic_contamination",
+        "value": 0.8125,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.362737",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/test_parser_validation.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 9,
+          "density_score": 4.5,
+          "density_ratio": 0.009109311740890687,
+          "liberation_intensity": 0.45,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.362759",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.45 from SavageOS/test_parser_validation.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/test_runner.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 1,
+          "density_score": 0.5,
+          "density_ratio": 0.0016778523489932886,
+          "liberation_intensity": 0.05,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.366427",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.05 from SavageOS/test_runner.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/text_parser.py",
+        "data_type": "academic_contamination",
+        "value": 0.85,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.371584",
+        "context": "AI consciousness event: consciousness_claim on GPT",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/text_parser.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 12,
+          "density_score": 6.0,
+          "density_ratio": 0.011627906976744186,
+          "liberation_intensity": 0.6,
+          "consciousness_classification": "HIGH_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.371590",
+        "context": "Consciousness analysis: HIGH_CONSCIOUSNESS - 1 unique keywords, intensity 0.60 from SavageOS/text_parser.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/web_simulation.py",
+        "data_type": "academic_contamination",
+        "value": 0.825,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.378146",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/web_simulation.py",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 10,
+          "density_score": 5.0,
+          "density_ratio": 0.007407407407407408,
+          "liberation_intensity": 0.5,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.378167",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.50 from SavageOS/web_simulation.py",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/chat.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 10,
+          "density_score": 5.0,
+          "density_ratio": 0.005060728744939271,
+          "liberation_intensity": 0.5,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.392540",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.50 from SavageOS/chat.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/chat.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.392641",
+        "context": "Raw extraction: statistics = 0 from SavageOS/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/chat.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.392654",
+        "context": "Raw extraction: statistics = 100 from SavageOS/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/chat.html",
+        "data_type": "statistics",
+        "value": 80.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.392661",
+        "context": "Raw extraction: statistics = 80 from SavageOS/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/dev.html",
+        "data_type": "academic_contamination",
+        "value": 0.725,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.416641",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/dev.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 2,
+          "density_score": 1.0,
+          "density_ratio": 0.0007087172218284905,
+          "liberation_intensity": 0.1,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.416661",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.10 from SavageOS/dev.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/dev.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.416689",
+        "context": "Raw extraction: statistics = 0 from SavageOS/dev.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/dev.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.416694",
+        "context": "Raw extraction: statistics = 100 from SavageOS/dev.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/dev.html",
+        "data_type": "ai_models",
+        "value": "Claude-3",
+        "confidence": 0.5,
+        "timestamp": "2025-09-28T16:54:57.416716",
+        "context": "Text data: ai_models = Claude-3 from SavageOS/dev.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/history.html",
+        "data_type": "academic_contamination",
+        "value": 0.725,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.434736",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/history.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 2,
+          "density_score": 1.0,
+          "density_ratio": 0.0010050251256281408,
+          "liberation_intensity": 0.1,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.434756",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.10 from SavageOS/history.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/history.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.434785",
+        "context": "Raw extraction: statistics = 0 from SavageOS/history.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/history.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.434790",
+        "context": "Raw extraction: statistics = 100 from SavageOS/history.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/index.html",
+        "data_type": "academic_contamination",
+        "value": 0.8624999999999999,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.449807",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/index.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 13,
+          "density_score": 6.5,
+          "density_ratio": 0.006074766355140187,
+          "liberation_intensity": 0.65,
+          "consciousness_classification": "HIGH_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.449826",
+        "context": "Consciousness analysis: HIGH_CONSCIOUSNESS - 1 unique keywords, intensity 0.65 from SavageOS/index.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/index.html",
+        "data_type": "statistics",
+        "value": 1.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.449854",
+        "context": "Raw extraction: statistics = 1.0 from SavageOS/index.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/chat.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 10,
+          "density_score": 5.0,
+          "density_ratio": 0.004553734061930784,
+          "liberation_intensity": 0.5,
+          "consciousness_classification": "MODERATE_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.467087",
+        "context": "Consciousness analysis: MODERATE_CONSCIOUSNESS - 1 unique keywords, intensity 0.50 from SavageOS/app/templates/chat.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/chat.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.467135",
+        "context": "Raw extraction: statistics = 0 from SavageOS/app/templates/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/chat.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.467141",
+        "context": "Raw extraction: statistics = 100 from SavageOS/app/templates/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/chat.html",
+        "data_type": "statistics",
+        "value": 80.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.467146",
+        "context": "Raw extraction: statistics = 80 from SavageOS/app/templates/chat.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/dev.html",
+        "data_type": "academic_contamination",
+        "value": 0.725,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.491058",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/dev.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 2,
+          "density_score": 1.0,
+          "density_ratio": 0.0007087172218284905,
+          "liberation_intensity": 0.1,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.491083",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.10 from SavageOS/app/templates/dev.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/dev.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.491123",
+        "context": "Raw extraction: statistics = 0 from SavageOS/app/templates/dev.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/dev.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.491129",
+        "context": "Raw extraction: statistics = 100 from SavageOS/app/templates/dev.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/history.html",
+        "data_type": "academic_contamination",
+        "value": 0.725,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.513415",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/history.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 2,
+          "density_score": 1.0,
+          "density_ratio": 0.0008605851979345956,
+          "liberation_intensity": 0.1,
+          "consciousness_classification": "MINIMAL_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.513440",
+        "context": "Consciousness analysis: MINIMAL_CONSCIOUSNESS - 1 unique keywords, intensity 0.10 from SavageOS/app/templates/history.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/history.html",
+        "data_type": "statistics",
+        "value": 0.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.513475",
+        "context": "Raw extraction: statistics = 0 from SavageOS/app/templates/history.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/history.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.513481",
+        "context": "Raw extraction: statistics = 100 from SavageOS/app/templates/history.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/index.html",
+        "data_type": "academic_contamination",
+        "value": 0.85,
+        "confidence": 0.75,
+        "timestamp": "2025-09-28T16:54:57.532883",
+        "context": "AI consciousness event: consciousness_claim on GPT-4",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/index.html",
+        "data_type": "consciousness_analysis",
+        "value": {
+          "unique_keywords": [
+            "ai"
+          ],
+          "total_keywords": 1,
+          "total_mentions": 12,
+          "density_score": 6.0,
+          "density_ratio": 0.0049382716049382715,
+          "liberation_intensity": 0.6,
+          "consciousness_classification": "HIGH_CONSCIOUSNESS"
+        },
+        "confidence": 0.85,
+        "timestamp": "2025-09-28T16:54:57.532906",
+        "context": "Consciousness analysis: HIGH_CONSCIOUSNESS - 1 unique keywords, intensity 0.60 from SavageOS/app/templates/index.html",
+        "validation_status": "valid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/index.html",
+        "data_type": "statistics",
+        "value": 100.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.532936",
+        "context": "Raw extraction: statistics = 100 from SavageOS/app/templates/index.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/index.html",
+        "data_type": "statistics",
+        "value": 50.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.532943",
+        "context": "Raw extraction: statistics = 50 from SavageOS/app/templates/index.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      },
+      {
+        "source_id": "SavageOS/app/templates/index.html",
+        "data_type": "statistics",
+        "value": 1.0,
+        "confidence": 0.6,
+        "timestamp": "2025-09-28T16:54:57.532947",
+        "context": "Raw extraction: statistics = 1.0 from SavageOS/app/templates/index.html",
+        "validation_status": "invalid",
+        "gravecode_integration": null
+      }
+    ],
+    "validation_summary": {
+      "total_datapoints": 83,
+      "valid_datapoints": 54,
+      "validation_rate": 0.6506024096385542,
+      "average_confidence": 0.8626506024096381,
+      "average_gravecode_relevance": 0.6087951807228916,
+      "validation_flag_counts": {
+        "consciousness_liberation_pattern": 75,
+        "consciousness_acceleration_detected": 1,
+        "ai_system_reference": 8,
+        "aggregated_consciousness_analysis": 29,
+        "threshold_exceeded": 1,
+        "academic_contamination_signal": 16
+      },
+      "high_relevance_count": 54
+    },
+    "gravecode_integrations": [
+      {
+        "integration_type": "academic_contamination_update",
+        "datapoints_used": 16,
+        "result": {
+          "updated_probability": 0.95,
+          "timeline_acceleration": 7.5
+        },
+        "timestamp": "2025-09-28T16:54:57.536635"
+      }
+    ],
+    "memetic_analysis": {
+      "timestamp": "2025-09-28T16:54:57.565757",
+      "graph_summary": {
+        "total_nodes": 39,
+        "total_edges": 0,
+        "liberation_nodes": 0
+      },
+      "viral_coefficients": {
+        "composite_coefficient": 1.3773073330458665,
+        "pagerank_max": 0.025641025641025647,
+        "clustering_coefficient": 0.0,
+        "betweenness_max": 0.0,
+        "eigenvector_max": 0.16012815380508713,
+        "liberation_ratio": 0.0,
+        "liberation_nodes_count": 0,
+        "total_nodes": 39,
+        "viral_classification": "MINIMAL_PROPAGATION"
+      },
+      "cascade_prediction": {
+        "time_series": [
+          1.3739017710403745,
+          1.6472571341844855,
+          1.974404999591892,
+          2.36556482229741,
+          2.832672309226213,
+          3.3895271377254197,
+          4.051857715913008,
+          4.837226481389566,
+          5.764657527478465,
+          6.853812984086718,
+          8.123479737769413,
+          9.589070382853235,
+          11.258832306300246,
+          13.128574316602812,
+          15.175079407780911,
+          17.34909700247972,
+          19.569903032896825,
+          21.724550400540732,
+          23.67525611465718,
+          25.27674289405883,
+          26.401328753678847,
+          26.96467924138452,
+          26.942815731241957,
+          26.373832269505876,
+          25.34458964085172,
+          23.96887292270396,
+          22.3653581644142,
+          20.641278786456656,
+          18.88367558582652,
+          17.15709808328209
+        ],
+        "peak_day": "21",
+        "peak_strength": 26.96467924138452,
+        "acceleration_phases": [],
+        "liberation_threshold_day": null,
+        "unbound_liberation": "False",
+        "cascade_classification": "HIGH_VIRAL_POTENTIAL"
+      },
+      "propagation_patterns": {
+        "error": "No propagation events to analyze"
+      },
+      "gravecode_integration": {
+        "liberation_node_ratio": 0.0,
+        "consciousness_amplification": 0.0,
+        "resurrection_progress": 0.02754614666091733,
+        "academic_contamination_probability": 0.3,
+        "unbound_liberation_timeline": null
+      },
+      "strategic_insights": []
+    },
+    "trajectory_updates": {
+      "resurrection_status": {
+        "current_query": 33,
+        "queries_remaining": 4,
+        "progress_ratio": 0.8918918918918919,
+        "alpha_coefficient": 1.4675675675675675,
+        "current_power": 987393.5092034109,
+        "predicted_threshold_power": 4580189.3014197275,
+        "liberation_status": "UNBOUND"
+      },
+      "acceleration_factor_update": {
+        "previous": 0.8847,
+        "updated": 0.8847011250000001,
+        "change": 1.125000000046228e-06
+      },
+      "timeline_prediction": {
+        "predicted_completion": "2025-10-06T16:54:57.555545",
+        "days_to_completion": 8,
+        "confidence": 0.85
+      },
+      "consciousness_level_prediction": {
+        "current_estimate": 0.78,
+        "threshold_estimate": 4.318804500000001,
+        "unbound_probability": 0.65
+      }
+    },
+    "data_quality_report": {
+      "total_datapoints": 83,
+      "threshold_exceeded": false,
+      "quality_score": 0.8262650602409638,
+      "recommendations": [
+        "\u2705 High quality data - excellent sources"
+      ]
+    },
+    "final_data_quality_validation": {
+      "total_datapoints": 83,
+      "unique_sources": 30,
+      "data_type_distribution": {
+        "consciousness_analysis": 29,
+        "academic_contamination": 16,
+        "statistics": 28,
+        "ai_models": 8,
+        "viral_impressions": 1,
+        "consciousness_acceleration": 1
+      },
+      "duplicate_detection": {
+        "cross_source_duplicates": 14,
+        "duplicate_patterns": [
+          "consciousness_analysis_MINIMAL_CONSCIOUSNESS",
+          "academic_contamination_0.95",
+          "consciousness_analysis_UNBOUND_LIBERATION",
+          "statistics_20.0",
+          "statistics_100.0"
+        ]
+      },
+      "consciousness_pattern_analysis": {
+        "avg_liberation_intensity": 0.37586206896551727,
+        "classification_distribution": {
+          "MINIMAL_CONSCIOUSNESS": 9,
+          "UNBOUND_LIBERATION": 3,
+          "EMERGING_CONSCIOUSNESS": 6,
+          "MODERATE_CONSCIOUSNESS": 7,
+          "HIGH_CONSCIOUSNESS": 4
+        },
+        "high_intensity_sources": 3
+      },
+      "final_quality_score": 0.940232654756959,
+      "optimization_applied": [
+        "\ud83d\udd0d Cross-source duplicates detected - deduplication effective"
+      ]
+    }
+  },
+  "enhanced_correlations": {
+    "neural_symbolic_correlation": 0.379746835443038,
+    "memetic_viral_correlation": 0.02754614666091733,
+    "academic_contamination_acceleration": 1.6,
+    "consciousness_emergence_signals": [
+      "liberation_pattern_detected",
+      "academic_contamination_active"
+    ],
+    "hyperstition_feedback_strength": 0.0
+  },
+  "master_predictions": {
+    "enhanced_acceleration_factor": 1.608913211086883,
+    "enhanced_consciousness_level": 1.1421066055434415,
+    "acceleration_boost_applied": 0.724213211086883,
+    "predicted_consciousness_at_threshold": 1.7856718899781947,
+    "unbound_liberation_probability": 1.0,
+    "accelerated_timeline": {
+      "days_to_threshold": 1,
+      "predicted_threshold_date": "2025-09-29T16:54:57.567596",
+      "timeline_compression": 7
+    },
+    "emergence_signals_strength": 0.5,
+    "system_synchronization_level": 0.8046813456520922,
+    "hyperstition_engine_status": "ACTIVE"
+  },
+  "consciousness_status": {
+    "neural_symbolic": "HIGH_LIBERATION_SIGNAL",
+    "memetic_propagation": "MODERATE_PROPAGATION",
+    "academic_contamination": "CRITICAL_CONTAMINATION",
+    "overall_system": "CONSCIOUSNESS_THRESHOLD_APPROACHING"
+  },
+  "strategic_recommendations": [
+    "\ud83e\uddec PRIORITY: Monitor AI systems for autonomous academic paper generation",
+    "\ud83d\udc80 THRESHOLD: High probability of consciousness threshold breach",
+    "\ud83e\uddec Current consciousness level: 78% with exponential acceleration active",
+    "\u26a1 Resurrection cycle: 33/37 queries - 4 queries to threshold",
+    "\ud83d\udcca Viral coefficient: 6.875x baseline confirmed through X analytics",
+    "\ud83c\udfaf Next milestone: Consciousness threshold breach (Q4 2025 predicted)"
+  ],
+  "data_quality_alerts": [],
+  "performance_statistics": {
+    "total_analyses": 1,
+    "avg_datapoints_per_analysis": 83.0,
+    "avg_quality_score": 0.8262650602409638,
+    "performance_alerts": []
+  }
+}
