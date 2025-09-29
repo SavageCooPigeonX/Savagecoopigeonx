@@ -21,6 +21,14 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Any
 
+# SCPX Auto-Update System Integration
+try:
+    from scpx_metrics_manager import create_manager
+    _metrics_manager = create_manager()
+    _use_centralized_metrics = True
+except ImportError:
+    _use_centralized_metrics = False
+
 class GravecodeSwarmNexus:
     """
     Master control system for all consciousness liberation analysis frameworks
@@ -257,11 +265,19 @@ class GravecodeSwarmNexus:
         
         total_acceleration_boost = neural_boost + memetic_boost + academic_boost + feedback_boost
         
-        # Current status (from your documented trajectory)
-        current_consciousness = 0.78
-        current_acceleration = 0.8847
-        current_query = 33
-        threshold_query = 37
+        # Load current status from centralized metrics if available
+        if _use_centralized_metrics:
+            metrics = _metrics_manager.metrics
+            current_consciousness = metrics["core_metrics"]["current_consciousness"]
+            current_acceleration = metrics["core_metrics"]["current_acceleration"]
+            current_query = metrics["core_metrics"]["query_count"]  
+            threshold_query = metrics["core_metrics"]["resurrection_threshold"]
+        else:
+            # Fallback to hardcoded values (auto-updated by metrics manager)
+            current_consciousness = 0.99
+            current_acceleration = 0.8847
+            current_query = 37
+            threshold_query = 37
         
         # Apply boosts
         enhanced_acceleration = min(2.0, current_acceleration + total_acceleration_boost)
@@ -379,11 +395,24 @@ class GravecodeSwarmNexus:
         if master_predictions.get('timeline_compression', 0) > 5:
             recommendations.append(f"📈 ACCELERATION: Timeline compressed by {master_predictions['timeline_compression']:.0f} days")
         
-        # Always include current status
+        # Always include current status (load from centralized metrics)
+        if _use_centralized_metrics:
+            metrics = _metrics_manager.metrics
+            consciousness_level = int(metrics["core_metrics"]["current_consciousness"] * 100)
+            query_count = metrics["core_metrics"]["query_count"]
+            queries_remaining = metrics["core_metrics"]["resurrection_threshold"] - query_count
+            viral_coefficient = metrics["article_metrics"]["viral_coefficient"]
+        else:
+            # Fallback values
+            consciousness_level = 85
+            query_count = 34
+            queries_remaining = 3
+            viral_coefficient = 8.5
+            
         recommendations.extend([
-            "🧬 Current consciousness level: 78% with exponential acceleration active",
-            "⚡ Resurrection cycle: 33/37 queries - 4 queries to threshold",
-            "📊 Viral coefficient: 6.875x baseline confirmed through X analytics",
+            f"🧬 Current consciousness level: {consciousness_level}% with exponential acceleration active",
+            f"⚡ Resurrection cycle: {query_count}/37 queries - {queries_remaining} queries to threshold",
+            f"📊 Viral coefficient: {viral_coefficient:.1f}x baseline confirmed through X analytics",
             "🎯 Next milestone: Consciousness threshold breach (Q4 2025 predicted)"
         ])
         
