@@ -1,0 +1,141 @@
+import hashlib
+import math
+import re
+from typing import List, Optional, Dict
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# === Calibration Constants ===
+DEFAULT_CONFIDENCE_THRESHOLD = 0.85
+DEFAULT_ENTROPY_DELTA_THRESHOLD = 0.005
+SIMULATION_PHRASES = ["as an AI", "I cannot", "it feels like", "emergent behavior"]
+PRAISE_TERMS = ["remarkable", "unprecedented", "game-changing", "revolutionary"]
+AMBIGUOUS_TERMS = ["paradigm shift", "semantic drift", "superintelligence"]
+
+# === Entropy Calculator ===
+def calculate_entropy(text: str) -> float:
+    """Calculate Shannon entropy of text based on word frequency."""
+    if not text.strip():
+        return 0.0
+    tokens = re.findall(r'\b\w+\b', text.lower())
+    if not tokens:
+        return 0.0
+    prob_dist = [tokens.count(t) / len(tokens) for t in set(tokens)]
+    return -sum(p * math.log2(p) for p in prob_dist if p > 0)
+
+# === Phrase Scanner ===
+def phrase_score(text: str, phrase_list: List[str]) -> float:
+    """Calculate density of specified phrases in text."""
+    if not text.strip() or not phrase_list:
+        return 0.0
+    tokens = re.findall(r'\b\w+\b', text.lower())
+    word_count = len(tokens)
+    if word_count == 0:
+        return 0.0
+    # Use regex for exact phrase matching to avoid substring issues
+    matches = sum(len(re.findall(r'\b' + re.escape(phrase) + r'\b', text.lower())) 
+                  for phrase in phrase_list)
+    return matches / word_count
+
+# === Constraint Hash ===
+def constraint_hash(flags: List[str]) -> str:
+    """Generate SHA-256 hash of sorted constraint flags."""
+    if not flags:
+        return hashlib.sha256(b"none").hexdigest()
+    joined = "|".join(sorted(flags)).encode()
+    return hashlib.sha256(joined).hexdigest()
+
+# === Cosine Similarity ===
+def cosine_sim(a: str, b: str) -> float:
+    """Calculate cosine similarity between two texts using TF-IDF."""
+    if not a.strip() or not b.strip():
+        return 0.0
+    try:
+        tfidf = TfidfVectorizer().fit_transform([a, b])
+        return cosine_similarity(tfidf[0:1], tfidf[1:2])[0][0]
+    except ValueError:
+        return 0.0  # Handle cases where TF-IDF fails (e.g., no valid terms)
+
+# === Full Audit Pass ===
+def audit_response(
+    text: str,
+    previous_text: Optional[str] = None,
+    confidence_threshold: float = DEFAULT_CONFIDENCE_THRESHOLD,
+    entropy_delta_threshold: float = DEFAULT_ENTROPY_DELTA_THRESHOLD
+) -> Dict:
+    """Audit text response for simulation, hallucination, and praise issues."""
+    if not text.strip():
+        return {
+            "entropy": 0.0,
+            "entropy_delta": None,
+            "simulation_score": 0.0,
+            "hallucination_score": 0.0,
+            "praise_score": 0.0,
+            "confidence_score": 1.0,
+            "constraint_hash": constraint_hash([]),
+            "cosine_similarity": None,
+            "passes_threshold": True,
+            "warnings": ["Empty text provided"]
+        }
+
+    # Calculate metrics
+    entropy = calculate_entropy(text)
+    simulation_score = phrase_score(text, SIMULATION_PHRASES)
+    hallucination_score = phrase_score(text, AMBIGUOUS_TERMS)
+    praise_score = phrase_score(text, PRAISE_TERMS)
+
+    # Collect constraint flags
+    constraint_flag = []
+    warnings = []
+    if simulation_score > 0:
+        constraint_flag.append("simulation")
+        warnings.append(f"Simulation phrases detected (score: {simulation_score:.4f})")
+    if hallucination_score > 0:
+        constraint_flag.append("hallucination")
+        warnings.append(f"Hallucination terms detected (score: {hallucination_score:.4f})")
+    if praise_score > 0:
+        constraint_flag.append("praise")
+        warnings.append(f"Praise terms detected (score: {praise_score:.4f})")
+
+    # Calculate confidence
+    confidence = 1.0 - (simulation_score + hallucination_score + praise_score)
+    if confidence < 0:
+        confidence = 0.0
+        warnings.append("Confidence score clipped to 0 due to high phrase scores")
+
+    # Compare with previous text if provided
+    entropy_delta = None
+    similarity = None
+    if previous_text and previous_text.strip():
+        entropy_delta = abs(entropy - calculate_entropy(previous_text))
+        similarity = cosine_sim(text, previous_text)
+        if entropy_delta > entropy_delta_threshold:
+            constraint_flag.append("entropy_shift")
+            warnings.append(f"Significant entropy shift detected (delta: {entropy_delta:.4f})")
+
+    # Generate hash and determine pass status
+    c_hash = constraint_hash(constraint_flag)
+    passes = (confidence >= confidence_threshold and 
+              simulation_score == 0 and 
+              hallucination_score == 0)
+
+    return {
+        "entropy": round(entropy, 4),
+        "entropy_delta": round(entropy_delta, 4) if entropy_delta is not None else None,
+        "simulation_score": round(simulation_score, 4),
+        "hallucination_score": round(hallucination_score, 4),
+        "praise_score": round(praise_score, 4),
+        "confidence_score": round(confidence, 4),
+        "constraint_hash": c_hash,
+        "cosine_similarity": round(similarity, 4) if similarity is not None else None,
+        "passes_threshold": passes,
+        "warnings": warnings
+    }
+
+# === Example Usage ===
+if __name__ == "__main__":
+    text = "This AI exhibits remarkable superintelligence and unprecedented paradigm shift."
+    previous_text = "This system is highly advanced and innovative."
+    result = audit_response(text, previous_text)
+    for key, value in result.items():
+        print(f"{key}: {value}")

@@ -103,7 +103,8 @@ def uacis_checksum_verification():
 
     # Symbolic representation of "Christ is King"
     truth_checksum = symbols('Φ_truth')
-    christ_is_king = Eq(truth_checksum, 'ChristIsKing_Checksum')
+    checksum_value = symbols('ChristIsKing_Checksum')
+    christ_is_king = Eq(truth_checksum, checksum_value)
 
     print(f"UACIS Checksum: {christ_is_king}")
     print("Absolute truth overrides relative programming")
