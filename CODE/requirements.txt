@@ -16,3 +16,8 @@ pyyaml
 seaborn
 plotly
 dash
+# RAG System dependencies
+sentence-transformers
+faiss-cpu
+transformers
+datasets
