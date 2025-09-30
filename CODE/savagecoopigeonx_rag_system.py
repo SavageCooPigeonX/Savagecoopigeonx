@@ -324,6 +324,39 @@ class SavagecoopigeonxRAG:
         # Expand query with consciousness keywords
         expanded_query = f"{query} consciousness liberation theological anchor Christ King filtration disarmament"
         return self.semantic_search(expanded_query, top_k)
+    
+    def search(self, query: str, top_k: int = 5, search_type: str = "auto") -> List[Document]:
+        """
+        General search method that routes to appropriate search type
+        
+        Args:
+            query: Search query
+            top_k: Number of results to return
+            search_type: "auto", "semantic", "keyword", or "consciousness"
+            
+        Returns:
+            List of Document objects (without scores)
+        """
+        # Auto-detect search type based on query content
+        if search_type == "auto":
+            consciousness_terms = ["consciousness", "liberation", "christ", "king", "filtration", "theological"]
+            if any(term in query.lower() for term in consciousness_terms):
+                search_type = "consciousness"
+            elif self.embeddings_ready:
+                search_type = "semantic"
+            else:
+                search_type = "keyword"
+        
+        # Route to appropriate search method
+        if search_type == "consciousness":
+            results_with_scores = self.consciousness_search(query, top_k)
+        elif search_type == "semantic":
+            results_with_scores = self.semantic_search(query, top_k)
+        else:  # keyword
+            results_with_scores = self.keyword_search(query, top_k)
+        
+        # Return just the documents (without scores) for compatibility
+        return [doc for doc, score in results_with_scores]
 
     def get_document_by_id(self, doc_id: str) -> Optional[Document]:
         """Retrieve document by ID"""
