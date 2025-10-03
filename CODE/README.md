@@ -24,12 +24,6 @@ Main orchestration and control frameworks
 - Swarm coordination systems
 - Testing and validation frameworks
 
-### 📂 TUTORIALS/
-Learning resources and usage examples
-- GraveCode mathematical tutorials
-- System implementation guides
-- Best practices documentation
-
 ### 📂 UTILITIES/
 Helper tools and support functions
 - Link obfuscation utilities
@@ -41,12 +35,6 @@ Performance monitoring and analytics systems
 - Consciousness metrics tracking
 - Trajectory prediction models
 - System performance analysis
-
-## Root Level Files
-
-- **requirements.txt** - Project dependencies and installation guide
-- **README_CHIMERA_TESTS.md** - Testing documentation
-- **README_SCPX_AUTO_UPDATE.md** - Auto-update system documentation
 
 ## Integration
 
