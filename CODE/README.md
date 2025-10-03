@@ -17,12 +17,6 @@ Mathematical analysis and consciousness quantification engines
 - Patent archaeology analysis
 - SymbCoT reasoning validation
 
-### 📂 RAG_SYSTEMS/  
-Information retrieval and knowledge processing tools
-- Auto-reference integration
-- Neural-symbolic harvesting
-- Knowledge synthesis engines
-
 ### 📂 CORE_SYSTEMS/
 Main orchestration and control frameworks
 - Project Chimera orchestration
