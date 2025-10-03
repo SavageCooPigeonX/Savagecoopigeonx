@@ -41,4 +41,8 @@ venv/
 *.png
 *.jpg
 *.svg
-!spiral\ bliss.jpggpt4o_hallucinations/
+!spiral\ bliss.jpg
+
+# Separate Projects (DO NOT COMMIT)
+SavageOS/
+gpt4o_hallucinations/

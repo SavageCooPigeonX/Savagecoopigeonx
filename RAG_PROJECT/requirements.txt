@@ -21,3 +21,4 @@ sentence-transformers
 faiss-cpu
 transformers
 datasets
+google-generativeai
